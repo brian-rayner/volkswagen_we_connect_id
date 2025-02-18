@@ -65,8 +65,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         vehicles: list[Vehicle] = []
 
         for vin, vehicle in _we_connect.vehicles.items():
-            if vehicle.model.value in SUPPORTED_VEHICLES:
-                vehicles.append(vehicle)
+            vehicles.append(vehicle)
 
         domain_entry: DomainEntry = hass.data[DOMAIN][entry.entry_id]
         domain_entry.vehicles = vehicles
